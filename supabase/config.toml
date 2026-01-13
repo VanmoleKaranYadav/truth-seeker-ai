@@ -1,0 +1,4 @@
+project_id = "tmuzeocrsyidlevbkzvm"
+
+[functions.analyze-news]
+verify_jwt = false
