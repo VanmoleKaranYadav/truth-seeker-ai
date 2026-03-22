@@ -18,6 +18,7 @@ const Index = () => {
   
   const { isAnalyzing, result, analyze, reset } = useAnalysis();
   const { data: history, isLoading: historyLoading, refetch: refetchHistory } = useHistory();
+  const { user, signOut } = useAuth();
 
   const handleAnalyze = () => {
     analyze(content, title);
