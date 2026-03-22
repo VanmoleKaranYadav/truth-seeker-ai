@@ -268,7 +268,7 @@ serve(async (req) => {
   }
 
   try {
-    const { content, title } = await req.json();
+    const { content, title, user_id } = await req.json();
 
     if (!content || content.trim().length < 20) {
       return new Response(
