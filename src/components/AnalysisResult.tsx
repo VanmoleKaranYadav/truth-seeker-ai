@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { CredibilityMeter } from "./CredibilityMeter";
 import { IndicatorCard } from "./IndicatorCard";
+import { MethodBreakdown } from "./MethodBreakdown";
 import { FileText } from "lucide-react";
 
 interface Indicator {
@@ -15,6 +16,7 @@ interface AnalysisResultProps {
     classification: "real" | "fake" | "uncertain";
     indicators: Indicator[];
     summary: string;
+    method_breakdown?: any;
   };
 }
 
@@ -48,6 +50,11 @@ export function AnalysisResult({ result }: AnalysisResultProps) {
           </div>
         </div>
       </motion.div>
+
+      {/* Method Breakdown */}
+      {result.method_breakdown && (
+        <MethodBreakdown breakdown={result.method_breakdown} />
+      )}
 
       {/* Indicators */}
       {result.indicators && result.indicators.length > 0 && (

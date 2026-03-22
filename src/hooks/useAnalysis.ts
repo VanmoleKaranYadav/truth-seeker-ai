@@ -13,6 +13,7 @@ interface AnalysisResult {
   classification: "real" | "fake" | "uncertain";
   indicators: Indicator[];
   summary: string;
+  method_breakdown?: any;
 }
 
 export function useAnalysis() {
