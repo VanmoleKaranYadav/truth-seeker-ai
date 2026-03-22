@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, History, ArrowRight, Sparkles, RotateCcw } from "lucide-react";
+import { Shield, History, ArrowRight, Sparkles, RotateCcw, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,7 @@ import { LoadingAnalysis } from "@/components/LoadingAnalysis";
 import { HistoryCard } from "@/components/HistoryCard";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useHistory } from "@/hooks/useHistory";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
   const [title, setTitle] = useState("");
@@ -17,6 +18,7 @@ const Index = () => {
   
   const { isAnalyzing, result, analyze, reset } = useAnalysis();
   const { data: history, isLoading: historyLoading, refetch: refetchHistory } = useHistory();
+  const { user, signOut } = useAuth();
 
   const handleAnalyze = () => {
     analyze(content, title);
@@ -41,8 +43,19 @@ const Index = () => {
         <motion.header 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-12 relative"
         >
+          {/* User bar */}
+          <div className="absolute top-0 right-0 flex items-center gap-2">
+            <span className="text-xs text-muted-foreground flex items-center gap-1">
+              <User className="w-3 h-3" />
+              {user?.email}
+            </span>
+            <Button variant="ghost" size="sm" onClick={signOut} className="gap-1 text-xs h-7">
+              <LogOut className="w-3 h-3" />
+              Sign Out
+            </Button>
+          </div>
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
               <Shield className="w-8 h-8 text-primary" />

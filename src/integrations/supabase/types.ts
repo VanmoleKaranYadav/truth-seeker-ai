@@ -23,6 +23,7 @@ export type Database = {
           id: string
           indicators: Json | null
           title: string | null
+          user_id: string | null
         }
         Insert: {
           classification: string
@@ -32,6 +33,7 @@ export type Database = {
           id?: string
           indicators?: Json | null
           title?: string | null
+          user_id?: string | null
         }
         Update: {
           classification?: string
@@ -41,6 +43,31 @@ export type Database = {
           id?: string
           indicators?: Json | null
           title?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
         }
         Relationships: []
       }

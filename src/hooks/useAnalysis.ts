@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 interface Indicator {
   type: "positive" | "negative" | "neutral";
@@ -20,6 +21,7 @@ export function useAnalysis() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const analyze = async (content: string, title?: string) => {
     if (content.trim().length < 20) {
@@ -36,7 +38,7 @@ export function useAnalysis() {
 
     try {
       const { data, error } = await supabase.functions.invoke("analyze-news", {
-        body: { content, title },
+        body: { content, title, user_id: user?.id },
       });
 
       if (error) {
