@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, History, ArrowRight, Sparkles, RotateCcw } from "lucide-react";
+import { Shield, History, ArrowRight, Sparkles, RotateCcw, LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,7 @@ import { LoadingAnalysis } from "@/components/LoadingAnalysis";
 import { HistoryCard } from "@/components/HistoryCard";
 import { useAnalysis } from "@/hooks/useAnalysis";
 import { useHistory } from "@/hooks/useHistory";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
   const [title, setTitle] = useState("");
