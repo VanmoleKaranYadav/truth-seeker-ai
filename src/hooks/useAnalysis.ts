@@ -21,6 +21,7 @@ export function useAnalysis() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const analyze = async (content: string, title?: string) => {
     if (content.trim().length < 20) {
