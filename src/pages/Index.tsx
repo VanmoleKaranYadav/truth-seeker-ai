@@ -43,8 +43,19 @@ const Index = () => {
         <motion.header 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-12 relative"
         >
+          {/* User bar */}
+          <div className="absolute top-0 right-0 flex items-center gap-2">
+            <span className="text-xs text-muted-foreground flex items-center gap-1">
+              <User className="w-3 h-3" />
+              {user?.email}
+            </span>
+            <Button variant="ghost" size="sm" onClick={signOut} className="gap-1 text-xs h-7">
+              <LogOut className="w-3 h-3" />
+              Sign Out
+            </Button>
+          </div>
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
               <Shield className="w-8 h-8 text-primary" />
