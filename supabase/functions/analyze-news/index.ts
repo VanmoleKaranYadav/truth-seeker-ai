@@ -412,6 +412,7 @@ serve(async (req) => {
         credibility_score: finalScore,
         classification: finalClassification,
         indicators: allIndicators,
+        user_id: user_id || null,
       });
 
     if (dbError) console.error("Database error:", dbError);
