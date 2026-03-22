@@ -38,7 +38,7 @@ export function useAnalysis() {
 
     try {
       const { data, error } = await supabase.functions.invoke("analyze-news", {
-        body: { content, title },
+        body: { content, title, user_id: user?.id },
       });
 
       if (error) {
