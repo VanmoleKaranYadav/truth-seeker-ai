@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Shield, Mail, Lock, User, ArrowRight, Loader2 } from "lucide-react";
+import { Mail, Lock, User, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
@@ -43,7 +43,7 @@ const Login = () => {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
-              <Shield className="w-8 h-8 text-primary" />
+              <span className="w-8 h-8 flex items-center justify-center text-primary font-display font-bold text-2xl">T</span>
             </div>
           </div>
           <h1 className="font-display text-3xl font-bold text-foreground mb-2">Welcome Back</h1>
